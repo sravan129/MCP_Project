@@ -1,6 +1,6 @@
 import asyncio
 import streamlit as st
-from langchain_classic import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain.agents import create_agent
 
@@ -33,4 +33,5 @@ if task:
     response = asyncio.run(agent.ainvoke({"messages": task}))
     st.write(response)
     final_output = response["messages"][-1].content
+
     st.write(final_output)
